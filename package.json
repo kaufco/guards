@@ -1,0 +1,57 @@
+{
+    "name": "@kobayami/guards",
+    "version": "1.0.0",
+    "description": "Some standard guards and exceptions",
+    "main": "lib/index.js",
+    "scripts": {
+        "clean": "rm -rf docs lib test",
+        "format": "prettier --write \"src/**/*.ts\" \"spec/**/*.ts\"",
+        "build": "npm run build-main && npm run build-test",
+        "build-main": "tsc -p tsconfig.src.json",
+        "build-test": "tsc -p tsconfig.test.json",
+        "lint": "tslint -p tsconfig.src.json",
+        "test": "jasmine --config=jasmine.json",
+        "doc": "typedoc --tsconfig tsconfig.src.json",
+        "full-build": "npm run clean && npm run format && npm run build && npm run lint && npm run test && npm run doc",
+        "remove-node_modules": "rm -rf node_modules",
+        "purge": "npm run clean && npm run remove-node_modules",
+        "reinstall": "npm run remove-node_modules && npm install",
+        "reinstall-and-full-build": "npm run reinstall && npm run full-build"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/kobayami/guards.git"
+    },
+    "files": [
+        "lib/**/*",
+        "test/**/*",
+        "jasmine.json"
+    ],
+    "keywords": [
+        "guards",
+        "save",
+        "type",
+        "erasure",
+        "null",
+        "undefined",
+        "array",
+        "range",
+        "exceptions"
+    ],
+    "author": "Marco Kaufmann",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/kobayami/guards/issues"
+    },
+    "homepage": "https://kobayami.github.io/guards",
+    "devDependencies": {
+        "@types/jasmine": "^3.6.9",
+        "jasmine": "^3.7.0",
+        "jasmine-console-reporter": "^3.1.0",
+        "prettier": "^2.2.1",
+        "tslint": "^6.1.3",
+        "tslint-config-prettier": "^1.18.0",
+        "typedoc": "^0.20.36",
+        "typescript": "^4.2.4"
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "target": "es2015",
+        "module": "commonjs",
+        "lib": [
+            "es2018"
+        ],
+        "removeComments": true,
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitReturns": true,
+        "noPropertyAccessFromIndexSignature": true,
+        "noUncheckedIndexedAccess": true,
+        "noUnusedLocals": true,
+        "outDir": "./lib"
+    },
+    "include": [
+        "src",
+        "spec"
+    ]
+}

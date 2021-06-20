@@ -1,0 +1,193 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>@kobayami/guards</title>
+	<meta name="description" content="Documentation for @kobayami/guards">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">@kobayami/guards</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<h1>@kobayami/guards</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#kobayamiguards" id="kobayamiguards" style="color: inherit; text-decoration: none;">
+					<h1>@kobayami/guards</h1>
+				</a>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
+				</a>
+				<pre><code class="language-sh"><span style="color: #000000">npm install --save @kobayami/guards</span>
+</code></pre>
+				<a href="#version-and-license" id="version-and-license" style="color: inherit; text-decoration: none;">
+					<h2>Version and License</h2>
+				</a>
+				<ul>
+					<li>Latest version: 1.0.0</li>
+					<li>License: <a href="https://kobayami.github.io/guards/LICENSE.md">MIT</a></li>
+					<li><a href="https://kobayami.github.io/guards/CHANGES.md">Changes</a></li>
+				</ul>
+				<a href="#summary" id="summary" style="color: inherit; text-decoration: none;">
+					<h2>Summary</h2>
+				</a>
+				<p>Some standard guards and exceptions:</p>
+				<ul>
+					<li>Type erasure for <code>null</code> and <code>undefined</code></li>
+					<li>Array, index and range guards</li>
+					<li>Standard exception declarations, such as <em>illegal state</em>, <em>illegal argument</em> or <em>unsupported operation</em></li>
+				</ul>
+				<a href="#usage-example" id="usage-example" style="color: inherit; text-decoration: none;">
+					<h2>Usage Example</h2>
+				</a>
+				<pre><code class="language-ts"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">assertPresent</span><span style="color: #000000">, </span><span style="color: #001080">assertEqualLength</span><span style="color: #000000">, </span><span style="color: #001080">illegalArgument</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;@kobayami/guards&quot;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">first</span><span style="color: #000000">&lt;</span><span style="color: #267F99">T</span><span style="color: #000000">&gt;(</span><span style="color: #001080">array</span><span style="color: #000000">: </span><span style="color: #267F99">T</span><span style="color: #000000">[]): </span><span style="color: #267F99">T</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #795E26">assertPresent</span><span style="color: #000000">(</span><span style="color: #001080">array</span><span style="color: #000000">[</span><span style="color: #098658">0</span><span style="color: #000000">]);</span>
+<span style="color: #000000">}</span>
+
+<span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">mergeMap</span><span style="color: #000000">&lt;</span><span style="color: #267F99">T</span><span style="color: #000000">, </span><span style="color: #267F99">U</span><span style="color: #000000">&gt;(</span><span style="color: #001080">a</span><span style="color: #000000">: </span><span style="color: #267F99">T</span><span style="color: #000000">[], </span><span style="color: #001080">b</span><span style="color: #000000">: </span><span style="color: #267F99">T</span><span style="color: #000000">[], </span><span style="color: #795E26">operation</span><span style="color: #000000">: (</span><span style="color: #001080">elemA</span><span style="color: #000000">: </span><span style="color: #267F99">T</span><span style="color: #000000">, </span><span style="color: #001080">elemB</span><span style="color: #000000">: </span><span style="color: #267F99">T</span><span style="color: #000000">): </span><span style="color: #267F99">U</span><span style="color: #000000">): </span><span style="color: #267F99">U</span><span style="color: #000000">[] {</span>
+<span style="color: #000000">    </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">length</span><span style="color: #000000"> = </span><span style="color: #795E26">assertEqualLength</span><span style="color: #000000">(</span><span style="color: #001080">a</span><span style="color: #000000">, </span><span style="color: #001080">b</span><span style="color: #000000">);</span>
+<span style="color: #000000">    </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">result</span><span style="color: #000000">: </span><span style="color: #267F99">U</span><span style="color: #000000">[] = [];</span>
+<span style="color: #000000">    </span><span style="color: #AF00DB">for</span><span style="color: #000000"> (</span><span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">index</span><span style="color: #000000"> = </span><span style="color: #098658">0</span><span style="color: #000000">; </span><span style="color: #001080">index</span><span style="color: #000000"> &lt; </span><span style="color: #001080">length</span><span style="color: #000000">; </span><span style="color: #001080">index</span><span style="color: #000000">++&gt;) {</span>
+<span style="color: #000000">        </span><span style="color: #001080">result</span><span style="color: #000000">.</span><span style="color: #795E26">push</span><span style="color: #000000">(</span><span style="color: #795E26">operation</span><span style="color: #000000">(</span><span style="color: #001080">a</span><span style="color: #000000">[</span><span style="color: #001080">index</span><span style="color: #000000">], </span><span style="color: #001080">b</span><span style="color: #000000">[</span><span style="color: #001080">index</span><span style="color: #000000">]));</span>
+<span style="color: #000000">    }</span>
+<span style="color: #000000">    </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #001080">result</span><span style="color: #000000">;</span>
+<span style="color: #000000">}</span>
+
+<span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">assertInt16</span><span style="color: #000000">(</span><span style="color: #001080">value</span><span style="color: #000000">: </span><span style="color: #267F99">number</span><span style="color: #000000">): </span><span style="color: #267F99">number</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">value</span><span style="color: #000000"> !== </span><span style="color: #267F99">Math</span><span style="color: #000000">.</span><span style="color: #795E26">round</span><span style="color: #000000">(</span><span style="color: #001080">value</span><span style="color: #000000">) || (</span><span style="color: #001080">value</span><span style="color: #000000"> &lt; -</span><span style="color: #098658">32768</span><span style="color: #000000">) || (</span><span style="color: #001080">value</span><span style="color: #000000"> &gt; </span><span style="color: #098658">32767</span><span style="color: #000000">)) </span>
+<span style="color: #000000">        </span><span style="color: #AF00DB">throw</span><span style="color: #000000"> </span><span style="color: #795E26">illegalArgument</span><span style="color: #000000">();</span>
+<span style="color: #000000">}</span>
+</code></pre>
+				<a href="#see-also" id="see-also" style="color: inherit; text-decoration: none;">
+					<h2>See Also</h2>
+				</a>
+				<ul>
+					<li><a href="https://kobayami.github.io/guards/docs/modules.html">API Documentation</a></li>
+					<li><a href="https://kobayami.github.io/guards">Project Homepage</a></li>
+					<li><a href="https://github.com/kobayami/guards">Project on GitHub</a></li>
+					<li><a href="https://github.com/kobayami/guards/issues">Issues</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="modules.html">Exports</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="modules.html#assertequallength" class="tsd-kind-icon">assert<wbr>Equal<wbr>Length</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="modules.html#assertpresent" class="tsd-kind-icon">assert<wbr>Present</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#assertvalidindex" class="tsd-kind-icon">assert<wbr>Valid<wbr>Index</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#assertvalidrange" class="tsd-kind-icon">assert<wbr>Valid<wbr>Range</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="modules.html#assertvalue" class="tsd-kind-icon">assert<wbr>Value</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#illegalargument" class="tsd-kind-icon">illegal<wbr>Argument</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#invalidstate" class="tsd-kind-icon">invalid<wbr>State</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#isequallength" class="tsd-kind-icon">is<wbr>Equal<wbr>Length</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="modules.html#ispresent" class="tsd-kind-icon">is<wbr>Present</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#isvalidindex" class="tsd-kind-icon">is<wbr>Valid<wbr>Index</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#isvalidrange" class="tsd-kind-icon">is<wbr>Valid<wbr>Range</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="modules.html#isvalue" class="tsd-kind-icon">is<wbr>Value</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#nonullallowed" class="tsd-kind-icon">no<wbr>Null<wbr>Allowed</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#nosuchelement" class="tsd-kind-icon">no<wbr>Such<wbr>Element</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#unsupportedoperation" class="tsd-kind-icon">unsupported<wbr>Operation</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
