@@ -1,6 +1,6 @@
 {
     "name": "@kobayami/guards",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Some standard guards and exceptions",
     "main": "lib/index.js",
     "scripts": {

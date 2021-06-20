@@ -8,7 +8,7 @@ npm install --save @kobayami/guards
 
 ## Version and License
 
-- Latest version: 1.0.0
+- Latest version: 1.0.1
 - License: [MIT](https://kobayami.github.io/guards/LICENSE.md)
 - [Changes](https://kobayami.github.io/guards/CHANGES.md)
 
@@ -32,7 +32,7 @@ function first<T>(array: T[]): T {
 function mergeMap<T, U>(a: T[], b: T[], operation: (elemA: T, elemB: T): U): U[] {
     const length = assertEqualLength(a, b);
     const result: U[] = [];
-    for (let index = 0; index < length; index++>) {
+    for (let index = 0; index < length; index++) {
         result.push(operation(a[index], b[index]));
     }
     return result;
