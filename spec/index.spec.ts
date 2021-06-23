@@ -1,8 +1,10 @@
 import {
     isPresent,
     assertPresent,
+    presentOrElse,
     isValue,
     assertValue,
+    valueOrElse,
     assertEqualLength,
     isEqualLength,
     isValidIndex,
@@ -14,10 +16,11 @@ import {
     noNullAllowed,
     noSuchElement,
     unsupportedOperation,
+    notImplemented,
 } from '../lib';
 
 describe('Test Suite', () => {
-    it('isPresent, assertPresent', () => {
+    it('isPresent, assertPresent, presentOrElse, isValue, assertValue, valueOrElse', () => {
         const samples: [any, boolean, boolean][] = [
             [undefined, false, false],
             [null, true, false],
@@ -32,15 +35,24 @@ describe('Test Suite', () => {
         for (const [value, expectedIsPresent, expectedIsValue] of samples) {
             expect(isPresent(value)).toBe(expectedIsPresent);
             expect(isValue(value)).toBe(expectedIsValue);
-            if (!expectedIsPresent) {
+            if (expectedIsPresent) {
+                expect(assertPresent(value)).toBe(value);
+                expect(presentOrElse(value, () => 'foo')).toBe(value);
+            } else {
                 expect(() => assertPresent(value)).toThrow(new ReferenceError('No such element'));
+                expect(presentOrElse(value, () => 'foo')).toBe('foo');
             }
-            if (!expectedIsValue) {
+
+            if (expectedIsValue) {
+                expect(assertValue(value)).toBe(value);
+                expect(valueOrElse(value, () => 'foo')).toBe(value);
+            } else {
                 expect(() => assertValue(value)).toThrow(
                     value === undefined
                         ? new ReferenceError('No such element')
                         : new TypeError('No null value allowed'),
                 );
+                expect(valueOrElse(value, () => 'foo')).toBe('foo');
             }
         }
     });
@@ -121,5 +133,7 @@ describe('Test Suite', () => {
         expect(invalidState('foo')).toEqual(new Error('foo'));
         expect(unsupportedOperation()).toEqual(new Error('Unsupported operation'));
         expect(unsupportedOperation('foo')).toEqual(new Error('foo'));
+        expect(notImplemented()).toEqual(new Error('Not implemented'));
+        expect(notImplemented('foo')).toEqual(new Error('foo'));
     });
 });

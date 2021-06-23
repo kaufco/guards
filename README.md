@@ -8,7 +8,7 @@ npm install --save @kobayami/guards
 
 ## Version and License
 
-- Latest version: 1.0.1
+- Latest version: 1.1.0
 - License: [MIT](https://kobayami.github.io/guards/LICENSE.md)
 - [Changes](https://kobayami.github.io/guards/CHANGES.md)
 
